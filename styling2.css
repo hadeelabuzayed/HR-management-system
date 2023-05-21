@@ -1,0 +1,70 @@
+* {
+
+    font-family: Roboto Slab;
+    font-size: 20pt;
+    font-style: normal;
+    font-weight: lighter;
+    color: white;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+html {
+    background-color: rgb(5, 11, 54);
+
+}
+
+.web_page_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+
+
+}
+
+header {
+    background-color: rgb(20, 28, 89);
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 45px;
+    align-items: center;
+    justify-content: end;
+
+
+}
+
+main {
+    min-height: calc(100vh - 50px);
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+
+footer {
+    padding: 25pt;
+    background-color: rgb(20, 28, 89);
+    color: rgb(220, 220, 220);
+    bottom: 0px;
+    text-decoration: underline;
+    text-align: end;
+}
+
+.personal_info_section fieldset {
+    padding: 10px;
+}
+
+.user_info_section fieldset {
+    padding: 10px;
+}
