@@ -1,67 +1,90 @@
 * {
-
-    font-family: Roboto Slab;
-    font-size: 20pt;
-    font-style: normal;
-    font-weight: lighter;
-    color: white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-
 }
 
 html {
-    background-color: rgb(5, 11, 54);
-
+    background-color: rgb(239, 239, 239);
 }
 
-.web_page_header {
+body {
     display: flex;
-    align-items: center;
-    gap: 10px;
-
-
-
+    flex-direction: column;
 }
 
 header {
-    background-color: rgb(20, 28, 89);
-    padding: 25px;
+    color: rgb(204, 216, 255);
+    background-color: rgb(3, 20, 38);
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
+    gap: 150px;
 }
 
-header ul {
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(204, 216, 255);
+}
+
+.social_links {
     list-style: none;
     display: flex;
-    gap: 45px;
+    gap: 20px;
+}
+
+.social_links li a {
+    display: flex;
     align-items: center;
-    justify-content: end;
+    gap: 5px;
+}
 
+.social_links li a:hover {
+    text-decoration: underline;
+}
 
-
+.page_title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 main {
     min-height: calc(100vh - 50px);
+    color: rgb(8, 45, 84);
     display: flex;
-    font-size: 18px;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: rgb(8, 45, 84);
+    min-width: 150px;
+    padding: 48px;
+}
+
+.sidebar ul {
+    display: flex;
     flex-direction: column;
-    padding: 10px;
+    gap: 30px;
+    font-size: 20px;
+}
 
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
 
-
-
-
+.main_body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 footer {
     padding: 25pt;
-    background-color: rgb(20, 28, 89);
+    background-color: rgb(10, 58, 110);
     color: rgb(220, 220, 220);
-    bottom: 0px;
-    text-decoration: underline;
-    text-align: end;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

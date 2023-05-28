@@ -1,112 +1,105 @@
-"use strict";
-let emp1 = {
-    employeeID: genID(),
-    fullName: "Ghazi Samer",
-    department: "Administration",
-    level: "Senior"
-};
-emp1.Salary=getNetSalary(emp1.level)
+'use strict';
 
-let emp2 = {
-    employeeID: genID(),
-    fullName: "Lana Ali",
-    department: "Finance",
-    level: "Senior"
-};
-emp2.Salary = getNetSalary(emp2.level)
-
-let emp3 = {
-    employeeID: genID(),
-    fullName: "Tamara Ayoub",
-    department: "Marketing",
-    level: "Senior"
-};
-emp3.Salary = getNetSalary(emp3.level)
-
-let emp4 = {
-    employeeID: genID(),
-    fullName: "Safi Walid",
-    department: "Administration",
-    level: "Mid-Senior"
-};
-emp4.Salary = getNetSalary(emp4.level)
-
-let emp5 = {
-    employeeID: genID(),
-    fullName: "Omar Zaid",
-    department: "Development",
-    level: "Senior"
-};
-emp5.Salary = getNetSalary(emp5.level)
-
-let emp6 = {
-    employeeID: genID(),
-    fullName: "Rana Saleh",
-    department: "Development",
-    level: "Junior"
-};
-emp6.Salary = getNetSalary(emp6.level)
-
-let emp7 = {
-    employeeID: genID(),
-    fullName: "Hadi Ahmad",
-    department: "Finance",
-    level: "Mid-Senior"
-};
-emp7.Salary = getNetSalary(emp7.level)
-function genID() {
-    return Math.floor(Math.random() * 9000) + 1000;
+const allEmployees = [];
+function Employee(id, name, department, level, image, salary) {
+    this.ID = id;
+    this.name = name;
+    this.department = department;
+    this.level = level;
+    this.image = image;
+    this.salary = salary;
+    allEmployees.push(this);
 }
 
+Employee.prototype.renderEmployeesInformation = function () {
+    
 
-let randomNumber = genID();
-
-console.log(emp1.employeeID);
-document.write()
-function getNetSalary(level) { 
-    let salary;
-    if (level === 'Senior')
-    { 
-        salary =Math.floor(Math.random() * (2000 - 1500)) + 1500;
-    }
-else if
-        (level === 'Mid-Senior') {
-            salary = Math.floor(Math.random() * (1500 - 1000)) + 1000;
-        }
-    else if
-        (level === 'Junior') {
-        salary = Math.floor(Math.random() * (1000 - 500)) + 500;
-    }
-    let NetSalary = salary - (salary * 7.5 / 100);
-    return NetSalary;
+    let cardContainer = document.createElement('section');
+    let empPhoto = document.createElement('img');
+    let empName = document.createElement('h4');
+    let empDepartment = document.createElement('h4');
+    let empSalary = document.createElement('h4');
+    let empLevel = document.createElement('h4');
+  
+    cardContainer.style.backgroundColor = 'rgb(204, 216, 255)';
+    cardContainer.style.borderRadius = '25px';
+    cardContainer.style.width = '220px';
+    cardContainer.style.height = '320px';
+    cardContainer.style.padding = '30px';
+    empPhoto.src = this.image;
+    empPhoto.style.width = '150px';
+    empPhoto.style.height = '150px';
+    empName.textContent = `Employee Name: ${this.name}`;
+    empDepartment.textContent = `Department: ${this.department}`;
+    empLevel.textContent = `Level: ${this.level}`;
+    empSalary.textContent = `Employee Salary: ${this.salary}`;
+    cardContainer.appendChild(empPhoto);
+    cardContainer.appendChild(empName);
+    cardContainer.appendChild(empDepartment);
+    cardContainer.appendChild(empSalary);
+    mainBodyElement.appendChild(cardContainer);
 }
-console.log(getNetSalary("Senior"));
 
-function renderEmployees() {
-    let employeeInfo = document.getElementById("employeeInfo");
-    employeeInfo.innerHTML = `
-    <p> Employee name:${emp1.fullName}<br>
-Employee salary: ${emp1.Salary}
-    </p>
-    <p> Employee name:${emp2.fullName}<br>
-Employee salary: ${emp2.Salary}
-    </p>
-    <p> Employee name:${emp3.fullName}<br>
-Employee salary: ${emp3.Salary}
-    </p>
-    <p> Employee name:${emp4.fullName}<br>
-Employee salary: ${emp4.Salary}
-    </p>
-    <p> Employee name:${emp5.fullName}<br>
-Employee salary: ${emp5.Salary}
-    </p>
-    <p> Employee name:${emp6.fullName}<br>
-Employee salary: ${emp6.Salary}
-    </p>
-<p> Employee name:${emp7.fullName}<br>
-Employee salary: ${emp7.Salary}
-    </p>
+let emp1 = new Employee(getEmployeeID(), 'Ghazi Samer', 'Administration', 'Senior', 'assets/Ghazi.png');
+emp1.salary = calculateEmployeeSalary(emp1.level);
+let emp2 = new Employee(getEmployeeID(), 'Lana Ali', 'Finance', 'Senior', 'assets/Lana.png');
+emp2.salary = calculateEmployeeSalary(emp2.level);
+let emp3 = new Employee(getEmployeeID(), 'Tamara Ayoub', 'Marketing', 'Senior', 'assets/Tamara.png');
+emp3.salary = calculateEmployeeSalary(emp3.level);
+let emp4 = new Employee(getEmployeeID(), 'Safi Walid', 'Administration', 'Mid-Senior', 'assets/Safi.png');
+emp4.salary = calculateEmployeeSalary(emp4.level);
+let emp5 = new Employee(getEmployeeID(), 'Omar Zaid', 'Development', 'Senior', 'assets/Omar.png');
+emp5.salary = calculateEmployeeSalary(emp5.level);
+let emp6 = new Employee(getEmployeeID(), 'Rana Saleh', 'Development', 'Junior', 'assets/Rana.png');
+emp6.salary = calculateEmployeeSalary(emp6.level);
+let emp7 = new Employee(getEmployeeID(), 'Hadi Ahmad', 'Finance', 'Mid-Senior', 'assets/Hadi.png');
+emp7.salary = calculateEmployeeSalary(emp7.level);
 
-    `
+function getEmployeeID() {
+   
+    let x = Math.ceil(Math.random() * (9999 - 1000)) + 1000;
+    console.log(`id = ${x}`);
 
+    return Math.ceil(Math.random() * (9999 - 1000)) + 1000;
+}
+
+function calculateEmployeeSalary(employeeLevel) {
+    let salary = 0;
+    let netSalary = 0;
+    switch (employeeLevel) {
+        case "Senior":
+            salary = Math.ceil(Math.random() * (2000 - 1500)) + 1500;
+
+           
+            console.log(salary);
+            break;
+        case "Mid-Senior":
+            salary = Math.ceil(Math.random() * (1500 - 1000)) + 1000;
+
+            // for testing
+            console.log(salary);
+            break;
+        case "Junior":
+            salary = Math.ceil(Math.random() * (1000 - 500)) + 500;
+
+           
+            console.log(salary);
+            break;
+        default:
+            console.log("Invalid level");
+    }
+    netSalary = salary - (salary * 7.5 / 100);
+    return netSalary;
+}
+
+console.log(allEmployees);
+
+let mainBodyElement = document.getElementsByClassName('main_body')[0];
+console.log(mainBodyElement);
+mainBodyElement.style.display = 'flex';
+mainBodyElement.style.flexWrap = 'wrap';
+mainBodyElement.style.gap = '10px';
+
+for (let i = 0; i < allEmployees.length; i++) {
+    allEmployees[i].renderEmployeesInformation();
 }
