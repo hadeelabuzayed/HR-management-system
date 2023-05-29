@@ -12,7 +12,7 @@ function Employee(id, name, department, level, image, salary) {
 }
 
 Employee.prototype.renderEmployeesInformation = function () {
-    
+
 
     let cardContainer = document.createElement('section');
     let empPhoto = document.createElement('img');
@@ -20,7 +20,7 @@ Employee.prototype.renderEmployeesInformation = function () {
     let empDepartment = document.createElement('h4');
     let empSalary = document.createElement('h4');
     let empLevel = document.createElement('h4');
-  
+
     cardContainer.style.backgroundColor = 'rgb(204, 216, 255)';
     cardContainer.style.borderRadius = '25px';
     cardContainer.style.width = '220px';
@@ -56,7 +56,7 @@ let emp7 = new Employee(getEmployeeID(), 'Hadi Ahmad', 'Finance', 'Mid-Senior', 
 emp7.salary = calculateEmployeeSalary(emp7.level);
 
 function getEmployeeID() {
-   
+
     let x = Math.ceil(Math.random() * (9999 - 1000)) + 1000;
     console.log(`id = ${x}`);
 
@@ -70,7 +70,7 @@ function calculateEmployeeSalary(employeeLevel) {
         case "Senior":
             salary = Math.ceil(Math.random() * (2000 - 1500)) + 1500;
 
-           
+
             console.log(salary);
             break;
         case "Mid-Senior":
@@ -82,7 +82,7 @@ function calculateEmployeeSalary(employeeLevel) {
         case "Junior":
             salary = Math.ceil(Math.random() * (1000 - 500)) + 500;
 
-           
+
             console.log(salary);
             break;
         default:
