@@ -1,112 +1,130 @@
-"use strict";
 let emp1 = {
-    employeeID: genID(),
-    fullName: "Ghazi Samer",
+    ID: getEmployeeID(),
+    name: "Ghazi Samer",
     department: "Administration",
-    level: "Senior"
-};
-emp1.Salary=getNetSalary(emp1.level)
-
+    level: "Senior",
+    image: "",
+}
+emp1.salary = calculateEmployeeSalary(emp1.level);
 let emp2 = {
-    employeeID: genID(),
-    fullName: "Lana Ali",
+    ID: getEmployeeID(),
+    name: "Lana Ali",
     department: "Finance",
-    level: "Senior"
-};
-emp2.Salary = getNetSalary(emp2.level)
-
+    level: "Senior",
+    image: "",
+}
+emp2.salary = calculateEmployeeSalary(emp2.level);
 let emp3 = {
-    employeeID: genID(),
-    fullName: "Tamara Ayoub",
+    ID: getEmployeeID(),
+    name: "Tamara Ayoub",
     department: "Marketing",
-    level: "Senior"
-};
-emp3.Salary = getNetSalary(emp3.level)
-
+    level: "Senior",
+    image: "",
+}
+emp3.salary = calculateEmployeeSalary(emp3.level);
 let emp4 = {
-    employeeID: genID(),
-    fullName: "Safi Walid",
+    ID: getEmployeeID(),
+    name: "Safi Walid",
     department: "Administration",
-    level: "Mid-Senior"
-};
-emp4.Salary = getNetSalary(emp4.level)
-
+    level: "Mid-Senior",
+    image: "",
+}
+emp4.salary = calculateEmployeeSalary(emp4.level);
 let emp5 = {
-    employeeID: genID(),
-    fullName: "Omar Zaid",
+    ID: getEmployeeID(),
+    name: "Omar Zaid",
     department: "Development",
-    level: "Senior"
-};
-emp5.Salary = getNetSalary(emp5.level)
-
+    level: "Senior",
+    image: "",
+}
+emp5.salary = calculateEmployeeSalary(emp5.level);
 let emp6 = {
-    employeeID: genID(),
-    fullName: "Rana Saleh",
+    ID: getEmployeeID(),
+    name: "Rana Saleh",
     department: "Development",
-    level: "Junior"
-};
-emp6.Salary = getNetSalary(emp6.level)
-
+    level: "Junior",
+    image: "",
+}
+emp6.salary = calculateEmployeeSalary(emp6.level);
 let emp7 = {
-    employeeID: genID(),
-    fullName: "Hadi Ahmad",
+    ID: getEmployeeID(),
+    name: "Hadi Ahmed",
     department: "Finance",
-    level: "Mid-Senior"
-};
-emp7.Salary = getNetSalary(emp7.level)
-function genID() {
-    return Math.floor(Math.random() * 9000) + 1000;
+    level: "Mid-Senior",
+    image: "",
+}
+emp7.salary = calculateEmployeeSalary(emp7.level);
+
+function getEmployeeID() {
+    // for testing
+    let x = Math.ceil(Math.random() * (9999 - 1000)) + 1000;
+    console.log(`id = ${x}`);
+
+    return Math.ceil(Math.random() * (9999 - 1000)) + 1000;
 }
 
+function calculateEmployeeSalary(employeeLevel) {
+    let salary = 0;
+    let netSalary = 0;
+    switch (employeeLevel) {
+        case "Senior":
+            salary = Math.ceil(Math.random() * (2000 - 1500)) + 1500;
 
-let randomNumber = genID();
+            // for testing
+            console.log(salary);
+            break;
+        case "Mid-Senior":
+            salary = Math.ceil(Math.random() * (1500 - 1000)) + 1000;
 
-console.log(emp1.employeeID);
-document.write()
-function getNetSalary(level) { 
-    let salary;
-    if (level === 'Senior')
-    { 
-        salary =Math.floor(Math.random() * (2000 - 1500)) + 1500;
+            // for testing
+            console.log(salary);
+            break;
+        case "Junior":
+            salary = Math.ceil(Math.random() * (1000 - 500)) + 500;
+
+            // for testing
+            console.log(salary);
+            break;
+        default:
+            console.log("Invalid level");
     }
-else if
-        (level === 'Mid-Senior') {
-            salary = Math.floor(Math.random() * (1500 - 1000)) + 1000;
-        }
-    else if
-        (level === 'Junior') {
-        salary = Math.floor(Math.random() * (1000 - 500)) + 500;
-    }
-    let NetSalary = salary - (salary * 7.5 / 100);
-    return NetSalary;
+    netSalary = salary - (salary * 7.5 / 100);
+    return netSalary;
 }
-console.log(getNetSalary("Senior"));
 
-function renderEmployees() {
-    let employeeInfo = document.getElementById("employeeInfo");
+function renderEmployeeInfo() {
+    let employeeInfo = document.getElementById("employee-info");
     employeeInfo.innerHTML = `
-    <p> Employee name:${emp1.fullName}<br>
-Employee salary: ${emp1.Salary}
+    <h2>Employees Info:</h2><br>
+    <p>
+        Employee Name: ${emp1.name}<br>
+        Employee Salary: ${emp1.salary}
+    </p><br>
+    <p>
+        Employee Name: ${emp2.name}<br>
+        Employee Salary: ${emp2.salary}
+    </p><br>
+    <p>
+        Employee Name: ${emp3.name}<br>
+        Employee Salary: ${emp3.salary}
+    </p><br>
+    <p>
+        Employee Name: ${emp4.name}<br>
+        Employee Salary: ${emp4.salary}
+    </p><br>
+    <p>
+        Employee Name: ${emp5.name}<br>
+        Employee Salary: ${emp5.salary}
+    </p><br>
+    <p>
+        Employee Name: ${emp6.name}<br>
+        Employee Salary: ${emp6.salary}
+    </p><br>
+    <p>
+        Employee Name: ${emp7.name}<br>
+        Employee Salary: ${emp7.salary}
     </p>
-    <p> Employee name:${emp2.fullName}<br>
-Employee salary: ${emp2.Salary}
-    </p>
-    <p> Employee name:${emp3.fullName}<br>
-Employee salary: ${emp3.Salary}
-    </p>
-    <p> Employee name:${emp4.fullName}<br>
-Employee salary: ${emp4.Salary}
-    </p>
-    <p> Employee name:${emp5.fullName}<br>
-Employee salary: ${emp5.Salary}
-    </p>
-    <p> Employee name:${emp6.fullName}<br>
-Employee salary: ${emp6.Salary}
-    </p>
-<p> Employee name:${emp7.fullName}<br>
-Employee salary: ${emp7.Salary}
-    </p>
-
-    `
-
+`
 }
+
+renderEmployeeInfo();
